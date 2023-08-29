@@ -73,7 +73,7 @@ const timer = () => {
 
 const buka = async () => {
     document.getElementById('tombol-musik').style.display = 'block';
-    // audio.play();
+    audio.play();
     AOS.init();
     await login();
     timer();
