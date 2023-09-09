@@ -75,7 +75,7 @@ const buka = async () => {
     document.getElementById('tombol-musik').style.display = 'block';
     audio.play();
     AOS.init();
-    await login();
+    // await login();
     timer();
 };
 
@@ -357,7 +357,7 @@ const pagination = (() => {
         await ucapan();
         button.disabled = false;
         button.innerHTML = tmp;
-        document.getElementById('daftarucapan').scrollIntoView({ behavior: 'smooth' });
+        // document.getElementById('daftarucapan').scrollIntoView({ behavior: 'smooth' });
     };
 
     return {
@@ -406,72 +406,72 @@ const pagination = (() => {
     };
 })();
 
-const ucapan = async () => {
-    const UCAPAN = document.getElementById('daftarucapan');
-    UCAPAN.innerHTML = renderLoading(pagination.getPer());
-    let token = localStorage.getItem('token') ?? '';
+// const ucapan = async () => {
+//     const UCAPAN = document.getElementById('daftarucapan');
+//     UCAPAN.innerHTML = renderLoading(pagination.getPer());
+//     let token = localStorage.getItem('token') ?? '';
 
-    if (token.length == 0) {
-        alert('Terdapat kesalahan, token kosong !');
-        window.location.reload();
-        return;
-    }
+//     if (token.length == 0) {
+//         alert('Terdapat kesalahan, token kosong !');
+//         window.location.reload();
+//         return;
+//     }
 
-    await fetch(getUrl(`/api/comment?per=${pagination.getPer()}&next=${pagination.getNext()}`), parseRequest('GET', token))
-        .then((res) => res.json())
-        .then((res) => {
-            if (res.code == 200) {
-                UCAPAN.innerHTML = null;
-                res.data.forEach((data) => UCAPAN.appendChild(renderCard(data)));
-                pagination.setResultData(res.data.length);
+//     await fetch(getUrl(`/api/comment?per=${pagination.getPer()}&next=${pagination.getNext()}`), parseRequest('GET', token))
+//         .then((res) => res.json())
+//         .then((res) => {
+//             if (res.code == 200) {
+//                 UCAPAN.innerHTML = null;
+//                 res.data.forEach((data) => UCAPAN.appendChild(renderCard(data)));
+//                 pagination.setResultData(res.data.length);
 
-                if (res.data.length == 0) {
-                    UCAPAN.innerHTML = `<div class="h6 text-center">Tidak ada data</div>`;
-                }
-            }
+//                 if (res.data.length == 0) {
+//                     UCAPAN.innerHTML = `<div class="h6 text-center">Tidak ada data</div>`;
+//                 }
+//             }
 
-            if (res.error.length != 0) {
-                if (res.error[0] == 'Expired token') {
-                    alert('Terdapat kesalahan, token expired !');
-                    window.location.reload();
-                    return;
-                }
+//             if (res.error.length != 0) {
+//                 if (res.error[0] == 'Expired token') {
+//                     alert('Terdapat kesalahan, token expired !');
+//                     window.location.reload();
+//                     return;
+//                 }
 
-                alert(res.error[0]);
-            }
-        })
-        .catch((err) => alert(err));
-};
+//                 alert(res.error[0]);
+//             }
+//         })
+//         .catch((err) => alert(err));
+// };
 
 const login = async () => {
-    document.getElementById('daftarucapan').innerHTML = renderLoading(pagination.getPer());
+    // document.getElementById('daftarucapan').innerHTML = renderLoading(pagination.getPer());
     let body = document.querySelector('body');
 
-    await fetch(
-        getUrl('/api/login'),
-        parseRequest('POST', null, {
-            email: body.getAttribute('data-email'),
-            password: body.getAttribute('data-password')
-        }))
-        .then((res) => res.json())
-        .then((res) => {
-            if (res.code == 200) {
-                localStorage.removeItem('token');
-                localStorage.setItem('token', res.data.token);
-                ucapan();
-            }
+    // await fetch(
+    //     getUrl('/api/login'),
+    //     parseRequest('POST', null, {
+    //         email: body.getAttribute('data-email'),
+    //         password: body.getAttribute('data-password')
+    //     }))
+    //     .then((res) => res.json())
+    //     .then((res) => {
+    //         if (res.code == 200) {
+    //             localStorage.removeItem('token');
+    //             localStorage.setItem('token', res.data.token);
+    //             ucapan();
+    //         }
 
-            if (res.error.length != 0) {
-                alert('Terdapat kesalahan, ' + res.error[0]);
-                window.location.reload();
-                return;
-            }
-        })
-        .catch(() => {
-            alert('Terdapat kesalahan, otomatis reload halaman');
-            window.location.reload();
-            return;
-        });
+    //         if (res.error.length != 0) {
+    //             alert('Terdapat kesalahan, ' + res.error[0]);
+    //             window.location.reload();
+    //             return;
+    //         }
+    //     })
+    //     .catch(() => {
+    //         alert('Terdapat kesalahan, otomatis reload halaman');
+    //         window.location.reload();
+    //         return;
+    //     });
 };
 
 const kirim = async () => {
@@ -628,8 +628,13 @@ window.addEventListener('load', () => {
     fetch("data/config.json")
         .then(response => response.json())
         .then(json => {
+            //set initial page
             document.getElementById("event-prefix").innerHTML = json.event.prefix
             document.getElementById("event-name").innerHTML = json.event.name
+            
+            //set home page
+            document.getElementById("home-event-name").innerHTML = json.event.name
+            document.getElementById("home-event-date").innerHTML = json.event.name
         })
 
     let modal = new bootstrap.Modal('#exampleModal');

@@ -19,22 +19,13 @@
     },
     "schedules": [
         {
-            "title": "Akad Nikah",
-            "time": "Pukul 9.00 WIB - Selesai",
-            "place": "Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258",
-            "maps": "https://goo.gl/maps/Qq5usYu1PH6rkeaW6"
+            "title": "Akad Nikah"
         },
         {
-            "title": "Resepsi",
-            "time": "Pukul 11.00 WIB - Selesai",
-            "place": "Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258",
-            "maps": "https://goo.gl/maps/Qq5usYu1PH6rkeaW6"
+            "title": "Resepsi"
         },
         {
-            "title": "Unduh Mantu",
-            "time": "Pukul 11.00 WIB - Selesai",
-            "place": "Dsn Alang - Alang Dowo, Desa Kersikan, Kec. Gondangwetan, Kab. Pasuruan, Jawa Timur 67174",
-            "maps": "https://goo.gl/maps/Bjti8vCQK4uRkq4P8"
+            "title": "Unduh Mantu"
         }
     ],
     "rekening": [
