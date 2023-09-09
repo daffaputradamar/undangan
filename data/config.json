@@ -1,0 +1,47 @@
+{
+    "event": {
+        "prefix": "The Wedding Of",
+        "name": "Daffa & Dila"
+    },
+    "pria": "Daffa Akbar Dwi P. D. S.Tr.Kom.",
+    "wanita": "Nur Fadilah S.Kom.",
+    "orangtua": {
+        "pria": {
+            "bapak": "Agus Damaryanto",
+            "ibu": "Ina Mardiana",
+            "title": "Putra ke-2"
+        }, 
+        "wanita": {
+            "bapak": "Abdul Cholik",
+            "ibu": "Qoyyimah",
+            "title": "Putri ke-3"
+        }
+    },
+    "schedules": [
+        {
+            "title": "Akad Nikah",
+            "time": "Pukul 9.00 WIB - Selesai",
+            "place": "Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258",
+            "maps": "https://goo.gl/maps/Qq5usYu1PH6rkeaW6"
+        },
+        {
+            "title": "Resepsi",
+            "time": "Pukul 11.00 WIB - Selesai",
+            "place": "Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258",
+            "maps": "https://goo.gl/maps/Qq5usYu1PH6rkeaW6"
+        },
+        {
+            "title": "Unduh Mantu",
+            "time": "Pukul 11.00 WIB - Selesai",
+            "place": "Dsn Alang - Alang Dowo, Desa Kersikan, Kec. Gondangwetan, Kab. Pasuruan, Jawa Timur 67174",
+            "maps": "https://goo.gl/maps/Bjti8vCQK4uRkq4P8"
+        }
+    ],
+    "rekening": [
+        {
+            "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg",
+            "rekening": "12345678",
+            "nama": "Daffa"
+        }
+    ]
+}

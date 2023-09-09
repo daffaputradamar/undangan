@@ -624,6 +624,14 @@ const modalFoto = (img) => {
 };
 
 window.addEventListener('load', () => {
+
+    fetch("data/config.json")
+        .then(response => response.json())
+        .then(json => {
+            document.getElementById("event-prefix").innerHTML = json.event.prefix
+            document.getElementById("event-name").innerHTML = json.event.name
+        })
+
     let modal = new bootstrap.Modal('#exampleModal');
     let name = (new URLSearchParams(window.location.search)).get('to') ?? '';
 
