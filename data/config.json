@@ -9,11 +9,11 @@
         "events": [
             {
                 "name": "Akad",
-                "schedule": "Pukul 10.00 WIB - Selesai"
+                "schedule": "Pukul 10.00 WIB"
             },
             {
                 "name": "Resepsi",
-                "schedule": "Pukul 13.00 WIB - Selesai"
+                "schedule": "Pukul 13.00 WIB - 17.00 WIB"
             }
         ],
         "rekening": {
@@ -40,7 +40,7 @@
             },
             {
                 "name": "Unduh Mantu",
-                "schedule": "Pukul 11.00 WIB - Selesai"
+                "schedule": "Pukul 11.00 WIB - 17.00 WIB"
             }
         ],
         "rekening": {
