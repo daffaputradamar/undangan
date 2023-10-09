@@ -369,7 +369,7 @@ window.addEventListener('load', () => {
                 div.classList.add('m-2');
                 div.innerHTML = `
                 <p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p>
-                <h5 class="text-light">${capitalizeWords(escapeHtml(name))}</h5>
+                <h5 class="text-light">${escapeHtml(name)}</h5>
                 `;
 
                 document.getElementById('namatamu').appendChild(div);
