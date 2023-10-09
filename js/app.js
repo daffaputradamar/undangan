@@ -306,7 +306,7 @@ window.addEventListener('load', () => {
     ]
 
     let modal = new bootstrap.Modal('#modalInit');
-    let name = (new URLSearchParams(window.location.search)).get('to') ?? '';
+    let name = (new URLSearchParams(window.location.search)).get('to') ?? 'Undangan';
 
     Promise.all(initPromises)
         .then(([common, guests, config]) => {
@@ -328,7 +328,8 @@ window.addEventListener('load', () => {
 
 
             let curGuest = guests[name]
-            let curConfig = config[curGuest.host]
+            let _host = curGuest ? curGuest.host : (new Date('2023-11-05') >= new Date()) ? 'dila' : 'daffa'
+            let curConfig = config[_host]
 
             document.getElementById("home-event-date").innerHTML = curConfig.day
 
