@@ -327,7 +327,7 @@ window.addEventListener('load', () => {
             document.getElementById("wanita-ortu").innerHTML = `Bapak ${common.orangtua.wanita.bapak} & Ibu ${common.orangtua.wanita.ibu}`
 
 
-            let curGuest = guests[name]
+            let curGuest = guests[name.toUpperCase()]
             let _host = curGuest ? curGuest.host : (new Date('2023-11-05') >= new Date()) ? 'dila' : 'daffa'
             let curConfig = config[_host]
 
