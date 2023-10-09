@@ -350,7 +350,7 @@ window.addEventListener('load', () => {
                 `
             })
 
-            if (!curGuest['hiderek']) {
+            if (curGuest && !curGuest['hiderek']) {
                 document.getElementById("ucapan-logo").src = curConfig.rekening.logo
                 document.getElementById("ucapan-norek").innerHTML = curConfig.rekening.norek
                 document.getElementById("ucapan-atasnama").innerHTML = curConfig.rekening.atasnama
