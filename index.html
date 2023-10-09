@@ -7,20 +7,19 @@
     <title>Undangan Pernikahan Daffa & Dila</title>
     <meta name="title" content="Undangan Pernikahan Daffa & Dila">
     <meta name="description" content="Website Undangan Pernikahan Daffa & Dila Secara Online">
-    <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/wedding-icon.png">
     <meta name="theme-color" content="#212529">
     <meta name="color-scheme" content="dark">
     <meta property="og:title" content="Undangan Pernikahan Daffa & Dila">
     <meta property="og:description" content="Website Undangan Pernikahan Daffa & Dila Secara Online">
-    <meta property="og:image" content="https://ulems.my.id/assets/images/bg.jpeg">
+    <meta property="og:image" content="./assets/images/Wedding-amico.svg">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="https://ulems.my.id/">
+    <meta property="og:image:alt" content="https://daffaputradamar.github.io/undangan/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="id_ID">
     <meta property="og:site_name" content="Undangan">
-    <meta property="og:url" content="https://ulems.my.id/">
+    <meta property="og:url" content="https://daffaputradamar.github.io/undangan/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
-    <link rel="preconnect" href="https://api.ulems.my.id" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
     <link rel="preconnect" href="https://gstatic.com" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous">
@@ -32,7 +31,7 @@
     <link rel="stylesheet" href="./css/app.css">
 </head>
 
-<body data-email="user@example.com" data-password="12345678" data-url="https://api.ulems.my.id">
+<body>
     <nav class="navbar navbar-dark bg-dark navbar-expand fixed-bottom rounded-top-4 p-0" id="navbar-example2">
         <ul class="navbar-nav nav-justified w-100 align-items-center">
             <li class="nav-item">
@@ -59,12 +58,12 @@
                     <span class="d-block" style="font-size: 0.7rem;">Galeri</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#ucapan">
                     <i class="fa-solid fa-comments"></i>
                     <span class="d-block" style="font-size: 0.7rem;">Ucapan</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </nav>
 
@@ -80,7 +79,7 @@
                 </div>
                 <h1 class="font-estetik my-4" style="font-size: 3rem;" id="home-event-name">Daffa & Dila</h1>
                 <h4 id="home-event-date">Rabu, 15 Maret 2023</h4>
-                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Daffa+and+Dila&details=The+Wedding+of+Daffa+and+Dila+%7C+05+November+2023+%7C+Desa+Kloposepuluh%2C+Kec.+Sukodono%2C+Kab.+Sidoarjo%2C+Jawa+Timur+61258+%7C+10.00+-+11.00+WIB&location=https%3A%2F%2Fgoo.gl%2Fmaps%2FQq5usYu1PH6rkeaW6&dates=20231105T030000Z%2F20231105T040000Z">
+                <a id="home-event-savethedate" class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Daffa+and+Dila&details=The+Wedding+of+Daffa+and+Dila+%7C+05+November+2023+%7C+Desa+Kloposepuluh%2C+Kec.+Sukodono%2C+Kab.+Sidoarjo%2C+Jawa+Timur+61258+%7C+10.00+-+11.00+WIB&location=https%3A%2F%2Fgoo.gl%2Fmaps%2FQq5usYu1PH6rkeaW6&dates=20231105T030000Z%2F20231105T040000Z">
                     <i class="fa-solid fa-calendar-check me-2"></i>Save The Date
                 </a>
                 <div class="d-flex justify-content-center align-items-center mt-4 mb-2">
@@ -111,9 +110,9 @@
                         <div class="cropper border border-3 border-light shadow my-4 mx-auto">
                             <img src="assets/images/cowo.png" alt="bg" onclick="modalFoto(this)">
                         </div>
-                        <h1 class="font-estetik" style="font-size: 3rem;">Daffa Akbar</h1>
-                        <h5 class="mt-3 mb-0">Putra</h5>
-                        <p class="mb-0">Bapak Agus Damaryanto & Ibu Ina Mardiana</p>
+                        <h1 id="pria" style="font-size: 2rem;">Daffa Akbar</h1>
+                        <h5 class="mt-3 mb-0" id="pria-title">Putra</h5>
+                        <p class="mb-0" id="pria-ortu">Bapak Agus Damaryanto & Ibu Ina Mardiana</p>
                     </div>
 
                     <h1 class="font-estetik my-4" style="font-size: 4rem;">&</h1>
@@ -122,9 +121,9 @@
                         <div class="cropper border border-3 border-light shadow my-4 mx-auto">
                             <img src="assets/images/cewe.png" alt="bg" onclick="modalFoto(this)">
                         </div>
-                        <h1 class="font-estetik" style="font-size: 3rem;">Nur Fadilah</h1>
-                        <h5 class="mt-3 mb-0">Putri</h5>
-                        <p class="mb-0">Bapak Abdul Cholik & Ibu Qoyyimah</p>
+                        <h1 id="wanita" style="font-size: 2rem;">Nur Fadilah</h1>
+                        <h5 class="mt-3 mb-0" id="wanita-title">Putri</h5>
+                        <p class="mb-0" id="wanita-ortu">Bapak Abdul Cholik & Ibu Qoyyimah</p>
                     </div>
                 </div>
             </div>
@@ -178,7 +177,7 @@
                         acara :
                     </p>
 
-                    <div class="overflow-x-hidden">
+                    <div class="overflow-x-hidden" id="events">
                         <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
                             <h1 class="font-estetik" style="font-size: 2rem;">Akad</h1>
                             <p>Pukul 9.00 WIB - Selesai</p>
@@ -191,10 +190,10 @@
                     </div>
 
                     <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="https://goo.gl/maps/Qq5usYu1PH6rkeaW6" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
+                        <a href="https://goo.gl/maps/Qq5usYu1PH6rkeaW6" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3" id="tanggal-map">
                             <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
                         </a>
-                        <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
+                        <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;" id="tanggal-place">
                             Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258 
                         </p>
                     </div>
@@ -311,7 +310,7 @@
             </path>
         </svg>
 
-        <div class="container">
+        <div class="container" id="container-norek">
             <div class="py-4">
                 <div class="text-center">
                     <h1 class="font-estetik mt-0 mb-3" style="font-size: 3rem;">Love Gift</h1>
@@ -322,26 +321,15 @@
 
                     <div class="overflow-x-hidden">
                         <div class="row justify-content-center">
-                            <!-- <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
-                                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1200px-BNI_logo.svg.png" class="img-fluid rounded" width="150" alt="bni">
-                                <p class="card-text mt-3 mb-0" style="font-size: 0.9rem;">
-                                    No. Rekening 123456789
-                                </p>
-                                <p class="card-text" style="font-size: 0.9rem;">
-                                    a.n Lorem ipsum dolor
-                                </p>
-                                <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)" autofocus>Salin No. Rekening</button>
-                            </div> -->
-
                             <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/2560px-BANK_BRI_logo.svg.png" class="img-fluid rounded" width="150" alt="bri">
+                                <img id="ucapan-logo" src="./assets/images/Bank_Central_Asia.svg" class="img-fluid rounded" width="150" alt="bri">
                                 <p class="card-text mt-3 mb-0" style="font-size: 0.9rem;">
-                                    No. Rekening 123456789
+                                    No. Rekening <span id="ucapan-norek">123456789</span>
                                 </p>
                                 <p class="card-text" style="font-size: 0.9rem;">
-                                    a.n Lorem ipsum dolor
+                                    a.n <span id="ucapan-atasnama">Lorem ipsum dolor</span>
                                 </p>
-                                <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)" autofocus>Salin No. Rekening</button>
+                                <button id="ucapan-norek-salin" class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)" autofocus>Salin No. Rekening</button>
                             </div>
                         </div>
                     </div>
@@ -432,6 +420,9 @@
                             <small>
                                 <i class="fa-brands fa-github me-1"></i><a target="_blank" href="https://github.com/dewanakl/undangan">dewanakl</a>
                             </small>
+                            <small>
+                                <i class="fa-brands fa-github me-1"></i><a target="_blank" href="https://github.com/daffaputradamar/undangan">daffaputradamar</a>
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -466,7 +457,7 @@
         </div>
     </div>
 
-    <div class="modal" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal" id="modalInit" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen m-0">
             <div class="modal-content m-0 p-0">
                 <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
@@ -477,7 +468,7 @@
                         </div>
                         <h1 class="font-estetik my-4" style="font-size: 2.5rem;" id="event-name">Daffa & Dila</h1>
                         <div id="namatamu"></div>
-                        <button type="button" class="btn btn-light shadow rounded-4 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="buka()">
+                        <button type="button" class="btn btn-light shadow rounded-4 mt-4" data-bs-toggle="modal" data-bs-target="#modalInit" onclick="buka()">
                             <i class="fa-solid fa-envelope-open me-2"></i>Buka Undangan
                         </button>
                     </div>

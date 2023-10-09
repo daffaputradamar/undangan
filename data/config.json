@@ -1,38 +1,52 @@
 {
-    "event": {
-        "prefix": "The Wedding Of",
-        "name": "Daffa & Dila"
-    },
-    "pria": "Daffa Akbar Dwi P. D. S.Tr.Kom.",
-    "wanita": "Nur Fadilah S.Kom.",
-    "orangtua": {
-        "pria": {
-            "bapak": "Agus Damaryanto",
-            "ibu": "Ina Mardiana",
-            "title": "Putra ke-2"
-        }, 
-        "wanita": {
-            "bapak": "Abdul Cholik",
-            "ibu": "Qoyyimah",
-            "title": "Putri ke-3"
+    "dila": {
+        "saveTheDate": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231105%2F20231106&details=The%20Wedding%20of%20Daffa%20and%20Dila%20%7C%2005%20November%202023%20%7C%20Desa%20Kloposepuluh%2C%20Kec.%20Sukodono%2C%20Kab.%20Sidoarjo%2C%20Jawa%20Timur%2061258%20%7C%2013.00%20-%20Selesai%20WIB&location=https%3A%2F%2Fmaps.app.goo.gl%2Fz9QNhAjdu2EGCG2R9&text=The%20Wedding%20of%20Daffa%20and%20Dila",
+        "countdown": "2023-11-05 13:00:00",
+        "day": "Minggu, 05 November 2023",
+        "place": "Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258",
+        "maps": "https://maps.app.goo.gl/z9QNhAjdu2EGCG2R9",
+        "times": "13.00 WIB - Selesai",
+        "events": [
+            {
+                "name": "Akad",
+                "schedule": "Pukul 10.00 WIB - Selesai"
+            },
+            {
+                "name": "Resepsi",
+                "schedule": "Pukul 13.00 WIB - Selesai"
+            }
+        ],
+        "rekening": {
+            "logo": "./assets/images/Bank_Central_Asia.svg",
+            "norek": "0882577587",
+            "atasnama": "Nur Fadilah"
         }
     },
-    "schedules": [
-        {
-            "title": "Akad Nikah"
-        },
-        {
-            "title": "Resepsi"
-        },
-        {
-            "title": "Unduh Mantu"
+    "daffa": {
+        "saveTheDate": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231112%2F20231113&details=The%20Wedding%20of%20Daffa%20and%20Dila%20%7C%2012%20November%202023%20%7C%20Dsn%20Alang%20-%20Alang%20Dowo%2C%20Desa%20Kersikan%2C%20Kec.%20Gondangwetan%2C%20Kab.%20Pasuruan%2C%20Jawa%20Timur%2067174%20%7C%2011.00%20-%20Selesai%20WIB&location=https%3A%2F%2Fmaps.app.goo.gl%2FedVNDo8XUA6JXc3QA&text=The%20Wedding%20of%20Daffa%20and%20Dila",
+        "countdown": "2023-11-12 11:00:00",
+        "day": "Minggu, 12 November 2023",
+        "place": "Dsn Alang - Alang Dowo, Desa Kersikan, Kec. Gondangwetan, Kab. Pasuruan, Jawa Timur 67174",
+        "maps": "https://maps.app.goo.gl/edVNDo8XUA6JXc3QA",
+        "times": "11.00 WIB - Selesai",
+        "events": [
+            {
+                "name": "Akad",
+                "schedule": "Selesai"
+            },
+            {
+                "name": "Resepsi",
+                "schedule": "Selesai"
+            },
+            {
+                "name": "Unduh Mantu",
+                "schedule": "Pukul 11.00 WIB - Selesai"
+            }
+        ],
+        "rekening": {
+            "logo": "./assets/images/Bank_Central_Asia.svg",
+            "norek": "0891358317",
+            "atasnama": "Daffa Akbar Dwi Putra D."
         }
-    ],
-    "rekening": [
-        {
-            "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg",
-            "rekening": "12345678",
-            "nama": "Daffa"
-        }
-    ]
+    }
 }

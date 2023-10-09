@@ -72,10 +72,11 @@ const timer = () => {
 };
 
 const buka = async () => {
+    window.scrollTo(0, 0);
     document.getElementById('tombol-musik').style.display = 'block';
     audio.play();
     AOS.init();
-    // await login();
+    
     timer();
 };
 
@@ -195,123 +196,6 @@ const balasan = async (button, msg = null) => {
     button.innerText = tmp;
 };
 
-const kirimBalasan = async () => {
-    let nama = document.getElementById('formnama').value;
-    let komentar = document.getElementById('formpesan').value;
-    let token = localStorage.getItem('token') ?? '';
-    let id = document.getElementById('idbalasan').value;
-
-    if (token.length == 0) {
-        alert('Terdapat kesalahan, token kosong !');
-        window.location.reload();
-        return;
-    }
-
-    if (nama.length == 0) {
-        alert('nama tidak boleh kosong');
-        return;
-    }
-
-    if (nama.length >= 35) {
-        alert('panjangan nama maksimal 35');
-        return;
-    }
-
-    if (komentar.length == 0) {
-        alert('pesan tidak boleh kosong');
-        return;
-    }
-
-    document.getElementById('formnama').disabled = true;
-    document.getElementById('formpesan').disabled = true;
-
-    document.getElementById('batal').disabled = true;
-    document.getElementById('kirimbalasan').disabled = true;
-    let tmp = document.getElementById('kirimbalasan').innerHTML;
-    document.getElementById('kirimbalasan').innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>Loading...`;
-
-    let isSuccess = false;
-    await fetch(
-        getUrl('/api/comment'),
-        parseRequest('POST', token, {
-            nama: nama,
-            id: id,
-            komentar: komentar
-        }))
-        .then((res) => res.json())
-        .then((res) => {
-            if (res.code == 201) {
-                isSuccess = true;
-            }
-
-            if (res.error.length != 0) {
-                if (res.error[0] == 'Expired token') {
-                    alert('Terdapat kesalahan, token expired !');
-                    window.location.reload();
-                    return;
-                }
-
-                alert(res.error[0]);
-            }
-        })
-        .catch((err) => {
-            resetForm();
-            alert(err);
-        });
-
-    if (isSuccess) {
-        await ucapan();
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        resetForm();
-    }
-
-    document.getElementById('batal').disabled = false;
-    document.getElementById('kirimbalasan').disabled = false;
-    document.getElementById('kirimbalasan').innerHTML = tmp;
-    document.getElementById('formnama').disabled = false;
-    document.getElementById('formpesan').disabled = false;
-};
-
-const innerCard = (comment) => {
-    let result = '';
-
-    comment.forEach((data) => {
-        result += `
-        <div class="card-body border-start bg-light py-2 ps-2 pe-0 my-2 ms-2 me-0" id="${data.uuid}">
-            <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                    <strong>${escapeHtml(data.nama)}</strong>
-                </p>
-                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
-            </div>
-            <hr class="text-dark my-1">
-            <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${escapeHtml(data.komentar)}</p>
-            <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
-            ${innerCard(data.comment)}
-        </div>`;
-    });
-
-    return result;
-};
-
-const renderCard = (data) => {
-    const DIV = document.createElement('div');
-    DIV.classList.add('mb-3');
-    DIV.innerHTML = `
-    <div class="card-body bg-light shadow p-3 m-0 rounded-4" id="${data.uuid}">
-        <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                <strong class="me-1">${escapeHtml(data.nama)}</strong><i class="fa-solid ${data.hadir ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>
-            </p>
-            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
-        </div>
-        <hr class="text-dark my-1">
-        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${escapeHtml(data.komentar)}</p>
-        <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
-        ${innerCard(data.comment)}
-    </div>`;
-    return DIV;
-};
 
 const renderLoading = (num) => {
     let hasil = '';
@@ -336,219 +220,6 @@ const renderLoading = (num) => {
     return hasil;
 };
 
-const pagination = (() => {
-
-    const perPage = 10;
-    let pageNow = 0;
-    let resultData = 0;
-
-    let disabledPrevious = () => {
-        document.getElementById('previous').classList.add('disabled');
-    };
-
-    let disabledNext = () => {
-        document.getElementById('next').classList.add('disabled');
-    };
-
-    let buttonAction = async (button) => {
-        let tmp = button.innerHTML;
-        button.disabled = true;
-        button.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>Loading...`;
-        await ucapan();
-        button.disabled = false;
-        button.innerHTML = tmp;
-        // document.getElementById('daftarucapan').scrollIntoView({ behavior: 'smooth' });
-    };
-
-    return {
-        getPer: () => {
-            return perPage;
-        },
-        getNext: () => {
-            return pageNow;
-        },
-        reset: async () => {
-            pageNow = 0;
-            resultData = 0;
-            await ucapan();
-            document.getElementById('next').classList.remove('disabled');
-            disabledPrevious();
-        },
-        setResultData: (len) => {
-            resultData = len;
-            if (resultData < perPage) {
-                disabledNext();
-            }
-        },
-        previous: async (button) => {
-            if (pageNow < 0) {
-                disabledPrevious();
-            } else {
-                pageNow -= perPage;
-                disabledNext();
-                await buttonAction(button);
-                document.getElementById('next').classList.remove('disabled');
-                if (pageNow <= 0) {
-                    disabledPrevious();
-                }
-            }
-        },
-        next: async (button) => {
-            if (resultData < perPage) {
-                disabledNext();
-            } else {
-                pageNow += perPage;
-                disabledPrevious();
-                await buttonAction(button);
-                document.getElementById('previous').classList.remove('disabled');
-            }
-        }
-    };
-})();
-
-// const ucapan = async () => {
-//     const UCAPAN = document.getElementById('daftarucapan');
-//     UCAPAN.innerHTML = renderLoading(pagination.getPer());
-//     let token = localStorage.getItem('token') ?? '';
-
-//     if (token.length == 0) {
-//         alert('Terdapat kesalahan, token kosong !');
-//         window.location.reload();
-//         return;
-//     }
-
-//     await fetch(getUrl(`/api/comment?per=${pagination.getPer()}&next=${pagination.getNext()}`), parseRequest('GET', token))
-//         .then((res) => res.json())
-//         .then((res) => {
-//             if (res.code == 200) {
-//                 UCAPAN.innerHTML = null;
-//                 res.data.forEach((data) => UCAPAN.appendChild(renderCard(data)));
-//                 pagination.setResultData(res.data.length);
-
-//                 if (res.data.length == 0) {
-//                     UCAPAN.innerHTML = `<div class="h6 text-center">Tidak ada data</div>`;
-//                 }
-//             }
-
-//             if (res.error.length != 0) {
-//                 if (res.error[0] == 'Expired token') {
-//                     alert('Terdapat kesalahan, token expired !');
-//                     window.location.reload();
-//                     return;
-//                 }
-
-//                 alert(res.error[0]);
-//             }
-//         })
-//         .catch((err) => alert(err));
-// };
-
-const login = async () => {
-    // document.getElementById('daftarucapan').innerHTML = renderLoading(pagination.getPer());
-    let body = document.querySelector('body');
-
-    // await fetch(
-    //     getUrl('/api/login'),
-    //     parseRequest('POST', null, {
-    //         email: body.getAttribute('data-email'),
-    //         password: body.getAttribute('data-password')
-    //     }))
-    //     .then((res) => res.json())
-    //     .then((res) => {
-    //         if (res.code == 200) {
-    //             localStorage.removeItem('token');
-    //             localStorage.setItem('token', res.data.token);
-    //             ucapan();
-    //         }
-
-    //         if (res.error.length != 0) {
-    //             alert('Terdapat kesalahan, ' + res.error[0]);
-    //             window.location.reload();
-    //             return;
-    //         }
-    //     })
-    //     .catch(() => {
-    //         alert('Terdapat kesalahan, otomatis reload halaman');
-    //         window.location.reload();
-    //         return;
-    //     });
-};
-
-const kirim = async () => {
-    let nama = document.getElementById('formnama').value;
-    let hadir = document.getElementById('hadiran').value;
-    let komentar = document.getElementById('formpesan').value;
-    let token = localStorage.getItem('token') ?? '';
-
-    if (token.length == 0) {
-        alert('Terdapat kesalahan, token kosong !');
-        window.location.reload();
-        return;
-    }
-
-    if (nama.length == 0) {
-        alert('nama tidak boleh kosong');
-        return;
-    }
-
-    if (nama.length >= 35) {
-        alert('panjangan nama maksimal 35');
-        return;
-    }
-
-    if (hadir == 0) {
-        alert('silahkan pilih kehadiran');
-        return;
-    }
-
-    if (komentar.length == 0) {
-        alert('pesan tidak boleh kosong');
-        return;
-    }
-
-    document.getElementById('formnama').disabled = true;
-    document.getElementById('hadiran').disabled = true;
-    document.getElementById('formpesan').disabled = true;
-
-    document.getElementById('kirim').disabled = true;
-    let tmp = document.getElementById('kirim').innerHTML;
-    document.getElementById('kirim').innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>Loading...`;
-
-    await fetch(
-        getUrl('/api/comment'),
-        parseRequest('POST', token, {
-            nama: nama,
-            hadir: hadir == 1,
-            komentar: komentar
-        }))
-        .then((res) => res.json())
-        .then((res) => {
-            if (res.code == 201) {
-                resetForm();
-                pagination.reset();
-            }
-
-            if (res.error.length != 0) {
-                if (res.error[0] == 'Expired token') {
-                    alert('Terdapat kesalahan, token expired !');
-                    window.location.reload();
-                    return;
-                }
-
-                alert(res.error[0]);
-            }
-        })
-        .catch((err) => {
-            resetForm();
-            alert(err);
-        });
-
-    document.getElementById('formnama').disabled = false;
-    document.getElementById('hadiran').disabled = false;
-    document.getElementById('formpesan').disabled = false;
-    document.getElementById('kirim').disabled = false;
-    document.getElementById('kirim').innerHTML = tmp;
-};
 
 const progressBar = (() => {
     let bar = document.getElementById('bar');
@@ -591,7 +262,7 @@ const opacity = () => {
     let modal = new Promise((res) => {
         let clear = null;
         clear = setInterval(() => {
-            if (document.getElementById('exampleModal').classList.contains('show')) {
+            if (document.getElementById('modalInit').classList.contains('show')) {
                 clearInterval(clear);
                 res();
             }
@@ -611,7 +282,7 @@ const opacity = () => {
             } else {
                 clearInterval(clear);
                 document.getElementById('loading').remove();
-                document.getElementById('exampleModal').classList.add('fade');
+                document.getElementById('modalInit').classList.add('fade');
             }
         }, 10);
     });
@@ -624,36 +295,87 @@ const modalFoto = (img) => {
 };
 
 window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+    let initPromises = [
+        fetch("data/common.json")
+            .then(response => response.json())
+        , fetch("data/guests.json")
+            .then(response => response.json())
+        , fetch("data/config.json")
+            .then(response => response.json())
+    ]
 
-    fetch("data/config.json")
-        .then(response => response.json())
-        .then(json => {
-            //set initial page
-            document.getElementById("event-prefix").innerHTML = json.event.prefix
-            document.getElementById("event-name").innerHTML = json.event.name
-            
-            //set home page
-            document.getElementById("home-event-name").innerHTML = json.event.name
-            document.getElementById("home-event-date").innerHTML = json.event.name
-        })
-
-    let modal = new bootstrap.Modal('#exampleModal');
+    let modal = new bootstrap.Modal('#modalInit');
     let name = (new URLSearchParams(window.location.search)).get('to') ?? '';
 
-    if (name.length == 0) {
-        document.getElementById('namatamu').remove();
-    } else {
-        let div = document.createElement('div');
-        div.classList.add('m-2');
-        div.innerHTML = `
-        <p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p>
-        <h2 class="text-light">${escapeHtml(name)}</h2>
-        `;
+    Promise.all(initPromises)
+        .then(([common, guests, config]) => {
+            //set initial page
+            document.getElementById("event-prefix").innerHTML = common.event.prefix
+            document.getElementById("event-name").innerHTML = common.event.name
 
-        document.getElementById('formnama').value = name;
-        document.getElementById('namatamu').appendChild(div);
-    }
+            //set home page
+            document.getElementById("home-event-name").innerHTML = common.event.name
 
-    modal.show();
-    opacity();
+            //set mempelai
+            document.getElementById("pria").innerHTML = common.pria
+            document.getElementById("pria-title").innerHTML = common.orangtua.pria.title
+            document.getElementById("pria-ortu").innerHTML = `Bapak ${common.orangtua.pria.bapak} & Ibu ${common.orangtua.pria.ibu}`
+
+            document.getElementById("wanita").innerHTML = common.wanita
+            document.getElementById("wanita-title").innerHTML = common.orangtua.wanita.title
+            document.getElementById("wanita-ortu").innerHTML = `Bapak ${common.orangtua.wanita.bapak} & Ibu ${common.orangtua.wanita.ibu}`
+
+
+            let curGuest = guests[name]
+            let curConfig = config[curGuest.host]
+
+            document.getElementById("home-event-date").innerHTML = curConfig.day
+
+            document.getElementById('tampilan-waktu').setAttribute('data-waktu', curConfig.countdown)
+
+            document.getElementById("home-event-savethedate").href = curConfig.saveTheDate
+            document.getElementById("tanggal-map").href = curConfig.maps
+            document.getElementById("tanggal-place").innerHTML = curConfig.place
+
+            let eventsDiv = document.getElementById("events")
+            eventsDiv.innerHTML = ""
+            curConfig.events.forEach(event => {
+                eventsDiv.innerHTML += `
+                <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
+                    <h1 class="font-estetik" style="font-size: 2rem;">${event.name}</h1>
+                    <p>${event.schedule}</p>
+                </div>
+                `
+            })
+
+            if (!curGuest['hiderek']) {
+                document.getElementById("ucapan-logo").src = curConfig.rekening.logo
+                document.getElementById("ucapan-norek").innerHTML = curConfig.rekening.norek
+                document.getElementById("ucapan-atasnama").innerHTML = curConfig.rekening.atasnama
+                document.getElementById('ucapan-norek-salin').setAttribute('data-nomer', curConfig.rekening.norek)
+            } else {
+                document.getElementById('container-norek').remove()
+            }
+
+
+
+
+            if (name.length == 0) {
+                document.getElementById('namatamu').remove();
+            } else {
+                let div = document.createElement('div');
+                div.classList.add('m-2');
+                div.innerHTML = `
+                <p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p>
+                <h5 class="text-light">${escapeHtml(name)}</h5>
+                `;
+
+                document.getElementById('namatamu').appendChild(div);
+            }
+
+            modal.show();
+            opacity();
+        })
+
 }, false);

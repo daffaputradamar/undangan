@@ -1,0 +1,20 @@
+{
+    "event": {
+        "prefix": "The Wedding Of",
+        "name": "Daffa & Dila"
+    },
+    "pria": "Daffa Akbar Dwi P. D. S.Tr.Kom.",
+    "wanita": "Nur Fadilah S.Kom.",
+    "orangtua": {
+        "pria": {
+            "bapak": "Agus Damaryanto",
+            "ibu": "Ina Mardiana",
+            "title": "Putra ke-2"
+        }, 
+        "wanita": {
+            "bapak": "Abdul Cholik",
+            "ibu": "Qoyyimah",
+            "title": "Putri ke-3"
+        }
+    }
+}
