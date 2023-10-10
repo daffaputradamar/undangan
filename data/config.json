@@ -1,6 +1,6 @@
 {
     "dila": {
-        "saveTheDate": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231105%2F20231106&details=The%20Wedding%20of%20Daffa%20and%20Dila%20%7C%2005%20November%202023%20%7C%20Desa%20Kloposepuluh%2C%20Kec.%20Sukodono%2C%20Kab.%20Sidoarjo%2C%20Jawa%20Timur%2061258%20%7C%2013.00%20-%20Selesai%20WIB&location=https%3A%2F%2Fmaps.app.goo.gl%2Fz9QNhAjdu2EGCG2R9&text=The%20Wedding%20of%20Daffa%20and%20Dila",
+        "saveTheDate": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231105T060000Z%2F20231105T100000Z&details=The%20Wedding%20of%20Daffa%20and%20Dila%20%7C%2005%20November%202023%20%7C%20Desa%20Kloposepuluh%2C%20Kec.%20Sukodono%2C%20Kab.%20Sidoarjo%2C%20Jawa%20Timur%2061258%20%7C%2013.00%20-%2017.00%20WIB&location=https%3A%2F%2Fmaps.app.goo.gl%2Fz9QNhAjdu2EGCG2R9&text=The%20Wedding%20of%20Daffa%20and%20Dila",
         "countdown": "2023-11-05 13:00:00",
         "day": "Minggu, 05 November 2023",
         "place": "Desa Kloposepuluh, Kec. Sukodono, Kab. Sidoarjo, Jawa Timur 61258",
@@ -23,7 +23,7 @@
         }
     },
     "daffa": {
-        "saveTheDate": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231112%2F20231113&details=The%20Wedding%20of%20Daffa%20and%20Dila%20%7C%2012%20November%202023%20%7C%20Dsn%20Alang%20-%20Alang%20Dowo%2C%20Desa%20Kersikan%2C%20Kec.%20Gondangwetan%2C%20Kab.%20Pasuruan%2C%20Jawa%20Timur%2067174%20%7C%2011.00%20-%20Selesai%20WIB&location=https%3A%2F%2Fmaps.app.goo.gl%2FedVNDo8XUA6JXc3QA&text=The%20Wedding%20of%20Daffa%20and%20Dila",
+        "saveTheDate": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231112T040000Z%2F20231112T100000Z&details=The%20Wedding%20of%20Daffa%20and%20Dila%20%7C%2012%20November%202023%20%7C%20Dsn%20Alang%20-%20Alang%20Dowo%2C%20Desa%20Kersikan%2C%20Kec.%20Gondangwetan%2C%20Kab.%20Pasuruan%2C%20Jawa%20Timur%2067174%20%7C%2011.00%20-%2017.00%20WIB&location=https%3A%2F%2Fmaps.app.goo.gl%2FedVNDo8XUA6JXc3QA&text=The%20Wedding%20of%20Daffa%20and%20Dila",
         "countdown": "2023-11-12 11:00:00",
         "day": "Minggu, 12 November 2023",
         "place": "Dsn Alang - Alang Dowo, Desa Kersikan, Kec. Gondangwetan, Kab. Pasuruan, Jawa Timur 67174",

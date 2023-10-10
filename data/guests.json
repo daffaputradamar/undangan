@@ -710,5 +710,13 @@
     },
     "MAS RIO KOS": {
         "host": "daffa"
+    },
+    "IED ANDRO MEDHA": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "RIZKI ANISA": {
+        "host": "dila",
+        "hiderek": true
     }
 }
