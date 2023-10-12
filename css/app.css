@@ -5,6 +5,7 @@ html {
 body {
     font-family: 'Josefin Sans', sans-serif;
     padding: 0 !important;
+    background-color: #79B4B7;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -16,7 +17,7 @@ body::-webkit-scrollbar {
 
 .font-estetik {
     font-family: 'Sacramento', cursive !important;
-    color: #ffffff !important;
+    /* color: #04364A !important; */
 }
 
 .cropper {
@@ -47,7 +48,7 @@ body::-webkit-scrollbar {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #212529;
+    background-color: #79B4B7;
     z-index: 1056 !important;
 }
 
