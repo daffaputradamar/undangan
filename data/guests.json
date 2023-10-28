@@ -107,7 +107,7 @@
     "TOMMY FERDIAN HARDIMARTA": {
         "host": "dila"
     },
-    "MELINA & REZA": {
+    "MELINA A.R.H": {
         "host": "dila"
     },
     "EMA ROSITASARI": {
@@ -721,6 +721,26 @@
     },
     "UNDANGAN AGUS DAMARYANTO": {
         "host": "daffa",
+        "hiderek": true
+    },
+    "PANGESTI RAHARJA": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "RIZAL FACHRIANSYAH": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "HABIB DARMAWAN": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "IKA RAMADHANI": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "UCI IMROATUL A.": {
+        "host": "dila",
         "hiderek": true
     }
 }
