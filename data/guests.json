@@ -737,5 +737,9 @@
     },
     "UCI IMROATUL A.": {
         "host": "dila"
+    },
+    "DILA FAMILY": {
+        "host": "daffa",
+        "hiderek": true
     }
 }
