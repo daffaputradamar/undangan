@@ -74,7 +74,7 @@
     "M.SOLEHUDIN": {
         "host": "dila"
     },
-    "M.PUJIANTO": {
+    "M.PUJIONO": {
         "host": "dila"
     },
     "YUFIDULLOH AHSANA B": {
@@ -740,6 +740,30 @@
     },
     "DILA FAMILY": {
         "host": "daffa",
+        "hiderek": true
+    },
+    "YUDA PRADANA": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "MBAK INDAH AGUSTIYAN": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "EYANG DRG. KUNTOROWATI": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "DRG. NI PUTU CLARA PITA LOKA": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "PAK PO SUPRAYITNO": {
+        "host": "dila",
+        "hiderek": true
+    },
+    "DRG. DITA PRILIA RAHMANDA": {
+        "host": "dila",
         "hiderek": true
     }
 }
